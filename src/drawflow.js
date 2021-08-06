@@ -1280,7 +1280,6 @@ export default class Drawflow {
       name: name,
       data: data,
       class: classoverride,
-      html: html,
       typenode: typenode,
       inputs: json_inputs,
       outputs: json_outputs,
