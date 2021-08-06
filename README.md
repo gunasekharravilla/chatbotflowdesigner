@@ -1,41 +1,8 @@
-[![npm](https://img.shields.io/npm/v/drawflow?color=green)](https://www.npmjs.com/package/drawflow)
-![npm](https://img.shields.io/npm/dy/drawflow)
-![npm bundle size](https://img.shields.io/bundlephobia/minzip/drawflow)
-[![GitHub license](https://img.shields.io/github/license/jerosoler/Drawflow)](https://github.com/jerosoler/Drawflow/blob/master/LICENSE)
-[![Twitter URL](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Ftwitter.com%2Fjerosoler)](https://twitter.com/jerosoler)
-# Drawflow
+# BotFlowDesigner
 
-![Demo](https://github.com/jerosoler/Drawflow/raw/master/docs/drawflow.gif)
+Simple flow Designer.
 
-Simple flow library.
-
-Drawflow allows you to create data flows easily and quickly.
-
-Installing only a javascript library and with four lines of code.
-
-⭐ [LIVE DEMO](https://jerosoler.github.io/Drawflow/)
-
-🎨 [THEME EDIT GENERATOR](https://jerosoler.github.io/drawflow-theme-generator/)
-
-## Table of contents
-- [Features](#features)
-- [Installation](#installation)
-  - [Running](#running)
-- [Mouse and  Keys](#mouse-and-keys)
-- [Editor](#editor)
-  - [Options](#editor-options)
-- [Modules](#modules)
-- [Nodes](#nodes)
-  - [Node example](#node-example)
-  - [Register Node](#register-node)
-- [Methods](#methods)
-  - [Methods example](#methods-example)
-- [Events](#events)
-  - [Events example](#events-example)
-- [Export / Import](#export-/-import)
-  - [Export example](#export-example)
-- [Example](#example)
-- [License](#license)
+BotFlowDesiner allows you to create Bot data flows easily and quickly.
 
 ## Features
 - Drag Nodes
@@ -53,87 +20,11 @@ Installing only a javascript library and with four lines of code.
 - Events
 - Mobile support
 - Vanilla javascript (No dependencies)
-- NPM
-- Vue Support component nodes && Nuxt
 
 ## Installation
-Download or clone repository and copy the dist folder, CDN option Or npm.  
+Download or clone repository and copy the dist folder. 
 #### Clone
-`git clone https://github.com/jerosoler/Drawflow.git`
-
-#### CDN
-```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jerosoler/Drawflow/dist/drawflow.min.css">
-<script src="https://cdn.jsdelivr.net/gh/jerosoler/Drawflow/dist/drawflow.min.js"></script>
-# or
-<link rel="stylesheet" href="https://unpkg.com/drawflow@0.0.45/dist/drawflow.min.css" />
-<script src="https://unpkg.com/drawflow@0.0.45/dist/drawflow.min.js"></script>
-```
-
-#### NPM
-```javascript
-npm i drawflow
-```
-
-### Typescript
-External package. More info [#119](https://github.com/jerosoler/Drawflow/issues/119)
-```javascript
-npm install -D @types/drawflow
-```
-
-#### Import
-```javascript
-import Drawflow from 'drawflow'
-import styleDrawflow from 'drawflow/dist/drawflow.min.css'
-```
-
-#### Require
-```javascript
-var Drawflow = require('drawflow')
-var styleDrawflow = require('drawflow/dist/drawflow.min.css')
-```
-
-Create the parent element of **drawflow**.
-```html
-<div id="drawflow"></div>
-```
-### Running
-Start drawflow.
-```javascript
-var id = document.getElementById("drawflow");
-const editor = new Drawflow(id);
-editor.start();
-```
-Parameter | Type | Description
---- | --- | ---
-`id` | Object | Name of module
-`render` | Object | It's for `Vue`.
-`parent` | Object | It's for `Vue`. The parent Instance
-
-### For vue 2 example.
-```javascript
-import Vue from 'vue'
-
-// Pass render Vue
-this.editor = new Drawflow(id, Vue, this);
-```
-
-### For vue 3 example.
-```javascript
-import * as Vue from 'vue'
-
-// Pass render Vue
-this.editor = new Drawflow(id, Vue, this);
-```
-
-### Nuxt
-Add to `nuxt.config.js` file
-```javascript
-build: {
-    transpile: ['drawflow'],
-    ...
-  }
-```
+`git clone `
 
 ## Mouse and  Keys
 - `del key` to remove element.
@@ -229,17 +120,12 @@ editor.addNode('github', 0, 1, 150, 300, 'github', data, html);
 it's possible register nodes for reuse.
 ```javascript
 var html = document.createElement("div");
-html.innerHTML =  "Hello Drawflow!!";
+html.innerHTML =  "Hello FlowDesigner!!";
 editor.registerNode('test', html);
 // Use
-editor.addNode('github', 0, 1, 150, 300, 'github', data, 'test', true);
+editor.addNode('TextDialog', 0, 1, 150, 300, 'TextDialog', data, 'test', true);
 
-// For vue
-import component from '~/components/testcomponent.vue'
-editor.registerNode('name', component, props, options);
-// Use for vue
-editor.addNode('github', 0, 1, 150, 300, 'github', data, 'name', 'vue');
-```
+
 
 Parameter | Type | Description
 --- | --- | ---
@@ -258,9 +144,9 @@ Mehtod | Description
 `zoom_in()` | Increment zoom +0.1
 `zoom_out()` | Decrement zoom -0.1
 `getNodeFromId(id)` | Get Info of node. Ex: id: `5`
-`getNodesFromName(name)` | Return Array of nodes id. Ex: name: `telegram`
+`getNodesFromName(name)` | Return Array of nodes id. `
 `removeNodeId(id)` | Remove node. Ex id: `node-x`
-`updateNodeDataFromId` | Update data element. Ex: `5, { name: 'Drawflow' }`
+`updateNodeDataFromId` | Update data element. Ex: `5, `
 `addNodeInput(id)` | Add input to node. Ex id: `5`
 `addNodeOutput(id)` | Add output to node. Ex id: `5`
 `removeNodeInput(id, input_class)` | Remove input to node. Ex id: `5`, `input_2`
@@ -327,74 +213,4 @@ You can export and import your data.
 var exportdata = editor.export();
 editor.import(exportdata);
 ```
-### Export example
-Example of exported data:
-```json
-{
-    "drawflow": {
-        "Home": {
-            "data": {}
-        },
-        "Other": {
-            "data": {
-                "16": {
-                    "id": 16,
-                    "name": "facebook",
-                    "data": {},
-                    "class": "facebook",
-                    "html": "\n        
-\n          
- Facebook Message
-\n        
-\n        ",
-                    "inputs": {},
-                    "outputs": {
-                        "output_1": {
-                            "connections": [
-                                {
-                                    "node": "17",
-                                    "output": "input_1"
-                                }
-                            ]
-                        }
-                    },
-                    "pos_x": 226,
-                    "pos_y": 138
-                },
-                "17": {
-                    "id": 17,
-                    "name": "log",
-                    "data": {},
-                    "class": "log",
-                    "html": "\n            
-\n              
- Save log file
-\n            
-\n            ",
-                    "inputs": {
-                        "input_1": {
-                            "connections": [
-                                {
-                                    "node": "16",
-                                    "input": "output_1"
-                                }
-                            ]
-                        }
-                    },
-                    "outputs": {},
-                    "pos_x": 690,
-                    "pos_y": 129
-                }
-            }
-        }
-    }
-}
 
-```
-
-## Example
-View the complete example in folder [docs](https://github.com/jerosoler/Drawflow/tree/master/docs).  
-There is also an [example](docs/drawflow-element.html) how to use Drawflow in a custom element. (based on [LitElement](https://lit-element.polymer-project.org)).  
-
-## License
-MIT License
