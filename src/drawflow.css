@@ -152,6 +152,20 @@
   top: -15px;
 }
 
+
+.modal {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.1s;
+  padding-top: 60px;
+}
+
 .modal.right .modal-dialog {
   position: fixed;
   margin: auto;
@@ -162,6 +176,7 @@
        -o-transform: translate3d(0%, 0, 0);
           transform: translate3d(0%, 0, 0);
 }
+
 
 
 .modal.right .modal-content {

@@ -404,3 +404,16 @@ cursor: pointer;
   border-bottom-color: #EEEEEE;
   background-color: #FAFAFA;
 }
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.1s;
+  padding-top: 60px;
+}
